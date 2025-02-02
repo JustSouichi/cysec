@@ -3,10 +3,12 @@
 const { exec } = require('child_process');
 const config = require('../config/config');
 
-// Function to run npm audit command and return the results
-exports.scanProject = () => {
+exports.scanProject = (targetIP) => {
   return new Promise((resolve, reject) => {
-    exec(config.auditCommand, (error, stdout, stderr) => {
+    // Esempio: esegue un comando di scansione che potrebbe usare targetIP
+    // In questo esempio usiamo npm audit senza effettivamente usare targetIP.
+    const command = `npm audit --json`;
+    exec(command, (error, stdout, stderr) => {
       if (error) {
         return reject(error);
       }
@@ -21,10 +23,9 @@ exports.scanProject = () => {
   });
 };
 
-// Function to run Retire.js and return the results in JSON format
-exports.scanRetire = () => {
+exports.scanRetire = (targetIP) => {
   return new Promise((resolve, reject) => {
-    // The command uses Retire.js with JSON output
+    // Esempio: esegue Retire.js (senza targetIP, per questo esempio)
     exec('retire --outputformat json', (error, stdout, stderr) => {
       if (error) {
         return reject(error);

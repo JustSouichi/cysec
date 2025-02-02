@@ -1,4 +1,3 @@
-// frontend/src/components/Notification.js
 import React, { useEffect } from 'react';
 
 const Notification = ({ message, type, onClose, duration = 3000 }) => {

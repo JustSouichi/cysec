@@ -1,4 +1,3 @@
-// frontend/src/components/Charts.js
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -32,9 +31,7 @@ const Charts = ({ scanResults }) => {
 
   const vulnerabilities = scanResults.npmAudit.metadata.vulnerabilities;
   const total = vulnerabilities.total || 0;
-  let safePercent = 0;
-  let moderatePercent = 0;
-  let dangerousPercent = 0;
+  let safePercent = 0, moderatePercent = 0, dangerousPercent = 0;
 
   if (total === 0) {
     safePercent = 100;
