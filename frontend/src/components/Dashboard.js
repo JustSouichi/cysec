@@ -57,7 +57,7 @@ const Dashboard = () => {
       )}
       {scanResults && scanResults.npmAudit && scanResults.npmAudit.metadata && (
         <div className="mb-4">
-          <h2 className="mb-3">Scan Results Summary</h2>
+          <h2 className="mb-3 text-center">Scan Results Summary</h2>
           <div className="card p-4">
             <p>
               <strong>Total Dependencies:</strong> {scanResults.npmAudit.metadata.dependencies.total}

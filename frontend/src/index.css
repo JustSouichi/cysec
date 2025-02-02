@@ -3,34 +3,59 @@
 /* Override Bootstrap default font and colors */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f0f2f5;
   color: #343a40;
+  margin: 0;
+  padding: 0;
 }
 
-/* Custom card shadow and border-radius */
+/* Navbar personalizzata */
+.navbar {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Card personalizzate */
 .card {
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
   border: none;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-/* Enhance button styling */
+/* Pulsanti personalizzati */
 .btn-custom {
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Custom header styling */
-h1, h2, h3 {
-  font-family: 'Roboto', sans-serif;
+/* Input e select */
+.form-control,
+.form-select {
+  border-radius: 0.5rem;
+  box-shadow: none;
 }
 
-/* Toast (notification) custom style */
+/* Lista vulnerabilità */
+.list-group-item {
+  transition: background-color 0.2s ease;
+}
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Notifiche (toast) */
 .toast-custom {
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 1050;
   min-width: 250px;
+  opacity: 0.95;
+  transition: opacity 0.5s ease;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
 }
