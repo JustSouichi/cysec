@@ -37,15 +37,17 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4">CySec Dashboard</h1>
-      <button 
-        onClick={handleScan} 
-        disabled={loading} 
-        className="btn btn-primary mb-3"
-      >
-        {loading ? 'Scanning...' : 'Run Security Scan'}
-      </button>
+    <div className="container mt-5">
+      <h1 className="mb-4 text-center">CySec Dashboard</h1>
+      <div className="d-flex justify-content-center mb-4">
+        <button 
+          onClick={handleScan} 
+          disabled={loading} 
+          className="btn btn-custom btn-primary"
+        >
+          {loading ? 'Scanning...' : 'Run Security Scan'}
+        </button>
+      </div>
       {notification && (
         <Notification
           message={notification.message}
@@ -53,12 +55,17 @@ const Dashboard = () => {
           onClose={() => setNotification(null)}
         />
       )}
-      {scanResults && (
+      {scanResults && scanResults.npmAudit && scanResults.npmAudit.metadata && (
         <div className="mb-4">
-          <h2>Scan Results</h2>
-          <pre className="bg-light p-3 rounded">
-            {JSON.stringify(scanResults, null, 2)}
-          </pre>
+          <h2 className="mb-3">Scan Results Summary</h2>
+          <div className="card p-4">
+            <p>
+              <strong>Total Dependencies:</strong> {scanResults.npmAudit.metadata.dependencies.total}
+            </p>
+            <p>
+              <strong>Total Vulnerabilities:</strong> {scanResults.npmAudit.metadata.vulnerabilities.total}
+            </p>
+          </div>
         </div>
       )}
       <Charts scanResults={scanResults} />

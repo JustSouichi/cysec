@@ -4,9 +4,28 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
       <div className="container">
-        <Link className="navbar-brand" to="/">CySec Dashboard</Link>
+        <Link className="navbar-brand fw-bold" to="/">
+          CySec Dashboard
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav ms-auto">
+            <Link className="nav-link" to="/">Home</Link>
+            {/* Aggiungi altri link se necessario */}
+          </div>
+        </div>
       </div>
     </nav>
   );
