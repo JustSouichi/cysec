@@ -1,0 +1,30 @@
+cysec/
+├── README.md
+├── LICENSE
+├── structure.txt
+├── backend/
+│   ├── package.json
+│   ├── server.js
+│   ├── config/
+│   │   └── config.js
+│   ├── controllers/
+│   │   └── vulnerabilityController.js
+│   ├── routes/
+│   │   └── vulnerabilityRoutes.js
+│   ├── services/
+│   │   └── scannerService.js
+│   └── utils/
+│       └── logger.js
+└── frontend/
+    ├── package.json
+    ├── public/
+│   │   └── index.html
+    └── src/
+        ├── index.js
+        ├── App.js
+        ├── components/
+        │   ├── Dashboard.js
+        │   ├── VulnerabilityList.js
+        │   └── Charts.js
+        └── services/
+            └── api.js
