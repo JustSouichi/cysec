@@ -1,10 +1,13 @@
 // frontend/src/components/Navbar.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <h1 className="text-2xl font-bold">CySec Dashboard</h1>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <Link className="navbar-brand" to="/">CySec Dashboard</Link>
+      </div>
     </nav>
   );
 };

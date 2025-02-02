@@ -33,19 +33,19 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">CySec Dashboard</h1>
+    <div className="container mt-4">
+      <h1 className="mb-4">CySec Dashboard</h1>
       <button 
         onClick={handleScan} 
         disabled={loading} 
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="btn btn-primary mb-3"
       >
         {loading ? 'Scanning...' : 'Run Security Scan'}
       </button>
       {scanResults && (
-        <div className="mt-4">
-          <h2 className="text-2xl font-semibold mb-2">Scan Results</h2>
-          <pre className="bg-gray-100 p-2 rounded overflow-auto">
+        <div className="mb-4">
+          <h2>Scan Results</h2>
+          <pre className="bg-light p-3 rounded">
             {JSON.stringify(scanResults, null, 2)}
           </pre>
         </div>
