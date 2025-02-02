@@ -3,19 +3,23 @@ import React, { useState, useEffect } from 'react';
 import { getVulnerabilities, scanProject } from '../services/api';
 import VulnerabilityList from './VulnerabilityList';
 import Charts from './Charts';
+import Notification from './Notification';
 
 const Dashboard = () => {
   const [vulnerabilities, setVulnerabilities] = useState([]);
   const [scanResults, setScanResults] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   const handleScan = async () => {
     setLoading(true);
     try {
       const response = await scanProject();
       setScanResults(response.data);
+      setNotification({ message: 'Scan completed successfully', type: 'success' });
     } catch (error) {
       console.error('Scan error:', error);
+      setNotification({ message: 'Scan failed', type: 'error' });
     }
     setLoading(false);
   };
@@ -42,6 +46,13 @@ const Dashboard = () => {
       >
         {loading ? 'Scanning...' : 'Run Security Scan'}
       </button>
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       {scanResults && (
         <div className="mb-4">
           <h2>Scan Results</h2>
