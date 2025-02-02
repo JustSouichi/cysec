@@ -9,24 +9,17 @@ const Dashboard = () => {
   const [scanResults, setScanResults] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Function to trigger a scan via POST
   const handleScan = async () => {
     setLoading(true);
     try {
       const response = await scanProject();
       setScanResults(response.data);
-      // If desired, update vulnerabilities from the audit report
-      if (response.data.npmAudit && response.data.npmAudit.metadata) {
-        // Here you can extract specific details if needed
-        setVulnerabilities([]);
-      }
     } catch (error) {
       console.error('Scan error:', error);
     }
     setLoading(false);
   };
 
-  // Optionally, load vulnerabilities on component mount (dummy GET)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,15 +33,21 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>CySec Dashboard</h1>
-      <button onClick={handleScan} disabled={loading}>
+    <div className="p-4">
+      <h1 className="text-3xl font-bold mb-4">CySec Dashboard</h1>
+      <button 
+        onClick={handleScan} 
+        disabled={loading} 
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
         {loading ? 'Scanning...' : 'Run Security Scan'}
       </button>
       {scanResults && (
-        <div>
-          <h2>Scan Results</h2>
-          <pre>{JSON.stringify(scanResults, null, 2)}</pre>
+        <div className="mt-4">
+          <h2 className="text-2xl font-semibold mb-2">Scan Results</h2>
+          <pre className="bg-gray-100 p-2 rounded overflow-auto">
+            {JSON.stringify(scanResults, null, 2)}
+          </pre>
         </div>
       )}
       <Charts scanResults={scanResults} />

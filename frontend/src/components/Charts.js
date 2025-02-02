@@ -3,7 +3,6 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
 const Charts = ({ scanResults }) => {
-  // Estrarre alcuni dati dal risultato della scansione, se disponibili
   const metadata = scanResults && scanResults.npmAudit && scanResults.npmAudit.metadata;
   const vulnerabilitiesCount = metadata
     ? metadata.vulnerabilities
@@ -27,8 +26,8 @@ const Charts = ({ scanResults }) => {
   };
 
   return (
-    <div>
-      <h2>Vulnerability Chart</h2>
+    <div className="mt-8">
+      <h2 className="text-2xl font-semibold mb-4">Vulnerability Chart</h2>
       <Bar data={chartData} />
     </div>
   );
